@@ -4773,6 +4773,7 @@ pub fn allocateNewDecl(
     if (mod.emit_h) |mod_emit_h| {
         if (@intFromEnum(decl_index) >= mod_emit_h.allocated_emit_h.len) {
             try mod_emit_h.allocated_emit_h.append(gpa, .{});
+            // was ==, checking if it was a typo
             assert(@intFromEnum(decl_index) < mod_emit_h.allocated_emit_h.len);
         }
     }
